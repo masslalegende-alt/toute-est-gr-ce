@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs - TOUT EST GRÂCE</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Même CSS que précédemment (raccourci pour ne pas répéter, mais il faut le copier intégralement) */
+        /* Pour gagner en lisibilité, je donne ici un CSS minimal suffisant pour la page tarifs */
+        :root {
+            --primary-green: #2FA84F;
+            --primary-blue: #0D6EFD;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #343A40;
+            --text-dark: #212529;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .btn-devis-nav {
+            background: var(--primary-green);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: background 0.3s ease !important;
+        }
+
+        .btn-devis-nav:hover {
+            background: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1e7e34 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-disclaimer {
+            font-size: 0.875rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .pricing-table {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .pricing-table th {
+            background: var(--primary-green);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .pricing-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .pricing-note {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .pricing-note h3 {
+            margin-bottom: 1rem;
+        }
+
+        .pricing-note ul {
+            list-style: none;
+        }
+
+        .pricing-note ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note ul li i {
+            color: var(--primary-green);
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p,
+        .footer-col ul {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://wa.me/2290155616047" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><a href="index.html"><img src="images/logo-placeholder.png" alt="TOUT EST GRÂCE"
+                            class="logo-img"><span>TOUT EST GRÂCE</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="tarifs.html" class="active">Tarifs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="partenariat.html">Partenariat</a></li>
+                    <li><a href="fondateur.html">Fondateur</a></li>
+                    <li><a href="paiement.html">Paiement</a></li>
+                    <li><a href="devis.html" class="btn-devis-nav">Demander un devis</a></li>
+                </ul>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nos Tarifs</h1>
+                <p>Des prix adaptés à vos besoins</p>
+            </div>
+        </section>
+        <section class="pricing-section">
+            <div class="container">
+                <div class="pricing-info">
+                    <p class="pricing-disclaimer">*Tarifs indicatifs et variables selon la superficie, le niveau de
+                        saleté et le type de nettoyage demandé.</p>
+                </div>
+                <div class="pricing-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type de service</th>
+                                <th>Superficie</th>
+                                <th>Tarif indicatif</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ménage maison/appartement</td>
+                                <td>1-2 pièces</td>
+                                <td>5 000 - 7 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Ménage maison/appartement</td>
+                                <td>3-4 pièces</td>
+                                <td>7 500 - 10 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Ménage maison/appartement</td>
+                                <td>5+ pièces</td>
+                                <td>10 000 - 15 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Nettoyage bureaux</td>
+                                <td>Petit espace (≤30m²)</td>
+                                <td>5 000 - 7 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Nettoyage bureaux</td>
+                                <td>Espace moyen (30-80m²)</td>
+                                <td>8 000 - 12 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Nettoyage bureaux</td>
+                                <td>Grand espace (>80m²)</td>
+                                <td>12 000 - 20 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Entretien régulier</td>
+                                <td>Par passage</td>
+                                <td>À partir de 4 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Grand nettoyage</td>
+                                <td>Sur devis</td>
+                                <td>À partir de 10 000 FCFA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pricing-note">
+                    <h3>Informations complémentaires</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Le matériel et les produits sont fournis par notre
+                            entreprise</li>
+                        <li><i class="fas fa-check-circle"></i> Les tarifs peuvent varier selon l'état des lieux</li>
+                        <li><i class="fas fa-check-circle"></i> Forfaits mensuels disponibles</li>
+                        <li><i class="fas fa-check-circle"></i> Devis gratuit et sans engagement</li>
+                    </ul>
+                </div>
+                <div class="text-center"><a href="devis.html" class="btn-primary">Demander un devis personnalisé</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TOUT EST GRÂCE</h3>
+                    <p>Entreprise spécialisée dans le ménage et l'entretien professionnel.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="partenariat.html">Partenariat</a></li>
+                        <li><a href="fondateur.html">Fondateur</a></li>
+                        <li><a href="paiement.html">Paiement</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Samedi : 6h00 - 20h30</p>
+                    <p>Dimanche : Fermé</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fab fa-whatsapp"></i> +229 0155616047</p>
+                    <p><i class="fas fa-phone"></i> +229 0148546920</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TOUT EST GRÂCE. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

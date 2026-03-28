@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description"
+        content="TOUT EST GRÂCE - Entreprise de ménage et d'entretien professionnel à Cotonou et Abomey-Calavi.">
+    <title>TOUT EST GRÂCE - Ménage et Entretien Professionnel</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== STYLES COMPLETS ==================== */
+        :root {
+            --primary-green: #2FA84F;
+            --primary-blue: #0D6EFD;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #343A40;
+            --text-dark: #212529;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .btn-devis-nav {
+            background: var(--primary-green);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: background 0.3s ease !important;
+        }
+
+        .btn-devis-nav:hover {
+            background: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-green);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-green);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .presentation {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .presentation-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .presentation-content>p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #6c757d;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .feature i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .services-home {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(47, 168, 79, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: var(--primary-green);
+        }
+
+        .gallery {
+            padding: 80px 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #6c757d;
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1e7e34 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cta-content p {
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-section .btn-primary {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1e7e34 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-detailed {
+            padding: 80px 0;
+        }
+
+        .service-detailed-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .service-detailed-card.reverse {
+            direction: rtl;
+        }
+
+        .service-detailed-card.reverse .service-detailed-content {
+            direction: ltr;
+        }
+
+        .service-detailed-img img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .service-detailed-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .service-detailed-content p {
+            margin-bottom: 1.5rem;
+            color: #6c757d;
+        }
+
+        .service-detailed-content ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detailed-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-detailed-content ul li i {
+            color: var(--primary-green);
+            margin-right: 0.5rem;
+        }
+
+        .mission-section {
+            padding: 80px 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .mission-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .mission-content>p {
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .values-list {
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-item i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .value-item h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mission-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .team-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            margin: 1rem 0 0.25rem;
+        }
+
+        .equipment-section {
+            padding: 80px 0;
+        }
+
+        .equipment-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .equipment-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .equipment-content p {
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .equipment-images {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .equipment-images img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-disclaimer {
+            font-size: 0.875rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .pricing-table {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .pricing-table th {
+            background: var(--primary-green);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .pricing-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .pricing-note {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .pricing-note h3 {
+            margin-bottom: 1rem;
+        }
+
+        .pricing-note ul {
+            list-style: none;
+        }
+
+        .pricing-note ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note ul li i {
+            color: var(--primary-green);
+            margin-right: 0.5rem;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info h2,
+        .contact-form-container h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-green);
+        }
+
+        .map-section {
+            margin-top: 3rem;
+        }
+
+        .map-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        .partnership-hero {
+            padding: 80px 0;
+        }
+
+        .partnership-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .partnership-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .partnership-content p {
+            margin-bottom: 1.5rem;
+            color: #6c757d;
+        }
+
+        .partnership-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .partnership-features .feature {
+            background: var(--light-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .partnership-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .partnership-details {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .detail-card {
+            text-align: center;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .detail-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .partnership-terms {
+            padding: 80px 0;
+        }
+
+        .terms-card {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .terms-card h2 {
+            margin-bottom: 1rem;
+        }
+
+        .terms-card ul {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .terms-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-card ul li i {
+            color: var(--primary-green);
+            margin-right: 0.5rem;
+        }
+
+        .devis-section {
+            padding: 80px 0;
+        }
+
+        .devis-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .devis-info {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1e7e34 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            color: var(--white);
+        }
+
+        .devis-info h2 {
+            margin-bottom: 1rem;
+        }
+
+        .devis-info p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .devis-info ul {
+            list-style: none;
+        }
+
+        .devis-info ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .devis-info ul li i {
+            margin-right: 0.5rem;
+        }
+
+        .devis-form-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .devis-form .form-group,
+        .contact-form .form-group,
+        .payment-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .devis-form label,
+        .contact-form label,
+        .payment-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .devis-form input,
+        .devis-form select,
+        .devis-form textarea,
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea,
+        .payment-form input,
+        .payment-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .devis-form input:focus,
+        .devis-form select:focus,
+        .devis-form textarea:focus,
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus,
+        .payment-form input:focus,
+        .payment-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .devis-form small {
+            display: block;
+            margin-top: 0.25rem;
+            color: #6c757d;
+            font-size: 0.75rem;
+        }
+
+        .payment-section {
+            padding: 80px 0;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .payment-details {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .payment-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-item i {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+        }
+
+        .payment-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-item ol {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .payment-form-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .founder-section {
+            padding: 80px 0;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .founder-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .founder-content h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-green);
+        }
+
+        .founder-title {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .founder-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .founder-contact {
+            margin-top: 2rem;
+        }
+
+        .founder-quote {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+
+        .quote-card {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .quote-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .quote-card p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .quote-card span {
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p,
+        .footer-col ul {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media (max-width: 992px) {
+
+            .hero-grid,
+            .mission-grid,
+            .contact-grid,
+            .devis-container,
+            .service-detailed-card,
+            .partnership-grid,
+            .payment-grid,
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-detailed-card.reverse {
+                direction: ltr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .features {
+                gap: 1.5rem;
+            }
+
+            .team-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-images img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .terms-card {
+                padding: 2rem;
+            }
+
+            .quote-card p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://wa.me/2290155616047" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><a href="index.html"><img src="images/logo-placeholder.png" alt="TOUT EST GRÂCE"
+                            class="logo-img"><span>TOUT EST GRÂCE</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="partenariat.html">Partenariat</a></li>
+                    <li><a href="fondateur.html">Fondateur</a></li>
+                    <li><a href="paiement.html">Paiement</a></li>
+                    <li><a href="devis.html" class="btn-devis-nav">Demander un devis</a></li>
+                </ul>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Ménage et Entretien Professionnel</h1>
+                    <p>TOUT EST GRÂCE - Votre partenaire de confiance pour un cadre propre, sain et agréable à Cotonou
+                        et Abomey-Calavi.</p>
+                    <div class="hero-buttons">
+                        <a href="devis.html" class="btn-primary">Demander un devis</a>
+                        <a href="services.html" class="btn-secondary">Nos services</a>
+                    </div>
+                </div>
+                <div class="hero-image"><img src="images/hero-cleaning-team.png"
+                        alt="Équipe de nettoyage professionnel en action"></div>
+            </div>
+        </section>
+        <section class="presentation">
+            <div class="container">
+                <div class="presentation-content">
+                    <h2>L'excellence au service de votre propreté</h2>
+                    <p>Spécialiste du ménage et de l'entretien pour particuliers et professionnels, nous intervenons
+                        avec sérieux, efficacité et discrétion.</p>
+                    <div class="features">
+                        <div class="feature"><i class="fas fa-clock"></i><span>Ponctualité garantie</span></div>
+                        <div class="feature"><i class="fas fa-medal"></i><span>Professionnalisme</span></div>
+                        <div class="feature"><i class="fas fa-smile"></i><span>Satisfaction garantie</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="services-home">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nos Services</h2>
+                    <p>Des prestations adaptées à tous vos besoins d'entretien</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-home"></i></div>
+                        <h3>Ménage Maison & Appartement</h3>
+                        <p>Nettoyage complet de votre intérieur.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Nettoyage Bureaux</h3>
+                        <p>Entretien professionnel des espaces de travail.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Entretien Régulier</h3>
+                        <p>Passages programmés.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-broom"></i></div>
+                        <h3>Grand Nettoyage</h3>
+                        <p>Nettoyage en profondeur.</p>
+                    </div>
+                </div>
+                <div class="text-center"><a href="services.html" class="btn-outline">Voir tous nos services</a></div>
+            </div>
+        </section>
+        <section class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Notre Travail en Images</h2>
+                    <p>Découvrez la qualité de nos prestations</p>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        <div class="slide"><img src="images/gallery-cleaning-1.png" alt="Nettoyage professionnel"></div>
+                        <div class="slide"><img src="images/gallery-cleaning-2.png" alt="Ménage de bureau"></div>
+                        <div class="slide"><img src="images/gallery-before-after.png" alt="Avant/Après nettoyage"></div>
+                        <div class="slide"><img src="images/gallery-equipment.png" alt="Matériel professionnel"></div>
+                    </div>
+                    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ils nous font confiance</h2>
+                    <p>Ce que nos clients pensent de nos services</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-img"><img src="images/testimonial-1.png" alt="Client satisfait"></div>
+                        <p class="testimonial-text">"Service impeccable, équipe ponctuelle et très professionnelle."</p>
+                        <h4>Marie B.</h4><span>Cotonou</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-img"><img src="images/testimonial-2.png" alt="Client satisfait"></div>
+                        <p class="testimonial-text">"Je recommande vivement TOUT EST GRÂCE pour l'entretien de nos
+                            bureaux."</p>
+                        <h4>Jean K.</h4><span>Abomey-Calavi</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-img"><img src="images/testimonial-3.png" alt="Client satisfait"></div>
+                        <p class="testimonial-text">"Un grand merci pour le nettoyage après mon déménagement."</p>
+                        <h4>Amandine D.</h4><span>Cotonou</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Besoin d'un devis personnalisé ?</h2>
+                    <p>Contactez-nous dès maintenant pour une intervention rapide et efficace</p><a href="devis.html"
+                        class="btn-primary">Demander un devis gratuit</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TOUT EST GRÂCE</h3>
+                    <p>Entreprise spécialisée dans le ménage et l'entretien professionnel à Cotonou et Abomey-Calavi.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="partenariat.html">Partenariat</a></li>
+                        <li><a href="fondateur.html">Fondateur</a></li>
+                        <li><a href="paiement.html">Paiement</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Samedi : 6h00 - 20h30</p>
+                    <p>Dimanche : Fermé</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fab fa-whatsapp"></i> +229 0155616047</p>
+                    <p><i class="fas fa-phone"></i> +229 0148546920</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TOUT EST GRÂCE. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
